@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ConfigProvider } from 'antd';
 import App from './App';
+import { Provider } from './Store';
 
 import zhCN from 'antd/es/locale/zh_CN';
 import './index.css';
@@ -10,12 +11,13 @@ import './index.css';
 
 const Index = () => (
   <React.StrictMode>
-    <ConfigProvider locale={zhCN}>
-      <App />
-    </ConfigProvider>
+    <Provider>
+      <ConfigProvider locale={zhCN}>
+        <App />
+      </ConfigProvider>
+    </Provider>
   </React.StrictMode>
 )
-
 
 ReactDOM.render(
   <Index/>,

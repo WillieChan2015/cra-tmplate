@@ -9,6 +9,7 @@ module.exports = {
     alias: {
       "@": path.resolve("src"),
       "~": path.resolve("src"),
+      "~types": path.resolve("src/types"),
     },
   },
 
