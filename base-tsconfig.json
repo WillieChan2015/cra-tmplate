@@ -6,5 +6,9 @@
       "~/*": ["./src/*"],
       "~types/*": ["./src/types/*"]
     }
-  }
+  },
+  "exclude": [
+    "app",
+    "conf"
+  ]
 }
