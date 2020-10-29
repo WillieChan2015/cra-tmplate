@@ -52,8 +52,7 @@
     "craco-fast-refresh": "^1.0.2",
     "node-sass": "^4.14.1",
     "ts-loader": "^8.0.7",
-    "tsc-alias": "^1.1.1",
-    "webpack": "^5.2.0"
+    "tsc-alias": "^1.1.1"
   },
   "eslintConfig": {
     "extends": "react-app"

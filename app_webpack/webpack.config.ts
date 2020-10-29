@@ -1,6 +1,14 @@
 import path from 'path';
+import fs from 'fs';
 import webpack from 'webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+
+const nodeModules = {};
+fs.readdirSync('node_modules')
+  .filter(x => ['.bin'].indexOf(x) === -1)
+  .forEach(mod => {
+    nodeModules[mod] = 'commonjs ' + mod;
+  });
 
 const config: webpack.Configuration = {
   target: 'node',
@@ -21,6 +29,13 @@ const config: webpack.Configuration = {
       'util': path.resolve(__dirname, '../app/util'),
       'conf': path.resolve(__dirname, '../conf'),
     },
+  },
+
+  externals: nodeModules,
+  context: __dirname,
+  node: {
+    __dirname: false,
+    __filename: false,
   },
 
   module: {
@@ -44,7 +59,6 @@ const config: webpack.Configuration = {
   plugins: [
     new webpack.ProgressPlugin({}),
     new CleanWebpackPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
   ]
 }
 
